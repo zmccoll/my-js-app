@@ -7,7 +7,7 @@ let pokemonRepository = (function(){
     ];
     
     function getAll () {
-        pokemonList;
+       return pokemonList;
     };
 
     function add () {
@@ -19,7 +19,7 @@ let pokemonRepository = (function(){
 }
 })();
  
-document.write(pokemonRepository.getAll()) ;
+
 /*
 //loop to display all of the pokemon information
 for (i = 0; i < pokemonList.length; i++) {
@@ -31,7 +31,7 @@ for (i = 0; i < pokemonList.length; i++) {
 }*/
 
 //forEach()
-pokemonRepository.forEach(function(pokemonList) {
+pokemonRepository.getAll().forEach(function(pokemonList) {
     document.write("<p>", pokemonList.name + "(height: " + pokemonList.height + ")", "</p>");
     //condition commenting whether pokemon is big or not
     if (pokemonList.height >= 0.6) {
