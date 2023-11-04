@@ -3,6 +3,22 @@ body {
     font-family: "Lato", sans-serif;
     font-family: "Playpen Sans", cursive;
     background-color:  #bb6162;
-  }
-
-
+    color: #faea41; 
+    display: inline-flexbox;
+    text-align: center;
+  };
+.button-class {
+    background-color: #faea41;
+    border: none;
+    text-decoration: none;
+    color:#bb6162;
+    padding: 20px;
+    text-align: center;
+    margin: 4px;
+    display: inline-flexbox;
+    font-size: 16px;
+    
+  };
+.button-class:hover {
+  cursor: pointer;
+};
