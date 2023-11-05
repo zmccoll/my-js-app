@@ -14,15 +14,21 @@ let pokemonRepository = (function(){
         pokedex.push(pokemon);
     };
 
+    function showDetails(pokemon) {
+        console.log(pokemon.name);
+    };
+
+    //code used to display list of pokemon on screen, displays them as a buttons which can be clicked
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
-        let listItem= document.createElement('li');
-        let button = document.createElement('butotn');
-        button.innerText = pokemon.name;
-        button.classList.add('button-class');
-        listItem.appendChild(button);
-        pokemonList.appendChild(listItem);
-    }
+        let listItem= document.createElement('li');//list items being created
+        let button = document.createElement('button');//button being created
+        button.innerText = pokemon.name;//button text will now display the pokemon name
+        button.addEventListener('click', showDetails(pokemon));
+        button.classList.add('button-class');//attached the css stylings to button
+        listItem.appendChild(button);//attached button to the list item
+        pokemonList.appendChild(listItem);//attached list items to ul in index.html
+    };
 
     return {
         getAll : getAll,
