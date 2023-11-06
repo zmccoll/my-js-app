@@ -24,10 +24,12 @@ let pokemonRepository = (function(){
         let listItem= document.createElement('li');//list items being created
         let button = document.createElement('button');//button being created
         button.innerText = pokemon.name;//button text will now display the pokemon name
-        button.addEventListener('click', showDetails(pokemon));
+        button.addEventListener('click', function(event) {
+            showDetails(pokemon);
+        });
         button.classList.add('button-class');//attached the css stylings to button
         listItem.appendChild(button);//attached button to the list item
-        pokemonList.appendChild(listItem);//attached list items to ul in index.html
+        pokemonList.appendChild(listItem);//attached list items to ul in index.htmlad
     };
 
     return {
