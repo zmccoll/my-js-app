@@ -6,6 +6,7 @@ body {
     color: #faea41; 
     display: inline-flexbox;
     text-align: center;
+    
   }
 .button-class {
     background-color: #bb6162;
@@ -20,6 +21,7 @@ body {
     margin: 4px;
     transition: opacity 1s; 
     
+    
   }
 .button-class:hover {
   cursor: pointer;
@@ -28,4 +30,6 @@ body {
 }
 .pokemon-list {
   list-style-type: none;
+  
+  
 }
