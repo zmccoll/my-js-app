@@ -2,25 +2,40 @@ let pokemonRepository = (function(){
     //Pokemon List
     let pokedex = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    /*{name: 'Pikachu', height: 0.5, types: 'electric'},
-    {name: 'Oddish', height: 0.5, types: ['grass', 'poison']},
-    {name: 'Koffing', height: 0.6, types: 'poison'},
-    */
     
-    function getAll () {
-       return pokedex;
-    };
+    //function that will be used to display info when a pokemon is clicked on
+    function showModal (pokemon) {
+        let modalContainer = document.querySelector('#modal-container');
+        modalContainer.classList.add('.is-visible');
 
-    function add (pokemon) {
-        pokedex.push(pokemon);
-    };
+        //clearing existing html
+        modalContainer.innerHTML = '';
 
-    function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            console.log(pokemon.name);
-        })
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        //add new modal content
+        let closeButtonElement = document.createElement('button')
+        closeButtonElement.innerText = 'x';
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.addEventListener('click', hideModal);
         
-    };
+        let titleElement = document.createElement('h1')
+        titleElement.innerText = pokemon.name;
+
+        let content = document.createElement('p')
+        content.innerText = "Pokemon Height: " + pokemon.height;
+
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(content);
+        modalContainer.appendChild(modal);
+    }
+
+    function hideModal () {
+
+    }
+    
 
     //code used to display list of pokemon on screen, displays them as a buttons which can be clicked
     function addListItem(pokemon) {
@@ -67,6 +82,21 @@ let pokemonRepository = (function(){
         });
     }
 
+    function getAll () {
+       return pokedex;
+    };
+
+    function add (pokemon) {
+        pokedex.push(pokemon);
+    };
+
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+            showModal(pokedex);
+        })
+    };
+
+
     return {
         getAll : getAll,
         add : add,
@@ -107,19 +137,3 @@ for (i = 0; i < pokemonList.length; i++) {
 }); 
 */
 
-/*test function
-function divide(dividend, divisor) {
-    if(divisor === 0) {
-        return "you're trying to divide by 0";
-    }
-    else {
-        let result = dividend / divisor;
-        return result;
-    }
-}
-console.log(divide(4,2));
-console.log(divide(7,0));
-console.log(divide(1,4));
-console.log(divide(12,-3));
-
-*/
