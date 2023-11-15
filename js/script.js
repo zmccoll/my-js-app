@@ -6,7 +6,10 @@ let pokemonRepository = (function(){
     //function that will be used to display info when a pokemon is clicked on
     function showModal (pokemon) {
         let modalContainer = document.querySelector('#modal-container');
-        modalContainer.classList.add('is-visible');
+        modalContainer.addEventListener('click', function() {
+            modalContainer.classList.add('is-visible');
+        })
+        
 
         //clearing existing html
         modalContainer.innerHTML = '';
