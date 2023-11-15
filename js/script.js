@@ -6,7 +6,7 @@ let pokemonRepository = (function(){
     //function that will be used to display info when a pokemon is clicked on
     function showModal (pokemon) {
         let modalContainer = document.querySelector('#modal-container');
-        modalContainer.classList.add('.is-visible');
+        modalContainer.classList.add('is-visible');
 
         //clearing existing html
         modalContainer.innerHTML = '';
@@ -33,7 +33,7 @@ let pokemonRepository = (function(){
     }
 
     function hideModal () {
-
+        modal.classList.remove('modal');
     }
     
 
@@ -72,15 +72,17 @@ let pokemonRepository = (function(){
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
             return response.json();
-        }).then(function (details) {
-            //this is where we add details to the item
+        });
+    }
+        
+        /*    //this is where we add details to the item
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
         }).catch(function (e) {
             console.error(e);
         });
-    }
+    }*/
 
     function getAll () {
        return pokedex;
@@ -91,8 +93,9 @@ let pokemonRepository = (function(){
     };
 
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            showModal(pokedex);
+        loadDetails(pokemon).then(function (data) {
+            console.log(data.name);
+            showModal(data);
         })
     };
 
@@ -102,7 +105,8 @@ let pokemonRepository = (function(){
         add : add,
         addListItem: addListItem,
         loadList: loadList,
-        loadDetails: loadDetails
+        loadDetails: loadDetails,
+        showModal: showModal
 };
 })();
 
