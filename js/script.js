@@ -6,10 +6,11 @@ let pokemonRepository = (function(){
     //function that will be used to display info when a pokemon is clicked on
     function showModal (pokemon) {
         let modalContainer = document.querySelector('#modal-container');
+        /*
         modalContainer.addEventListener('click', function() {
             modalContainer.classList.add('is-visible');
         })
-        
+        */
 
         //clearing existing html
         modalContainer.innerHTML = '';
@@ -25,20 +26,53 @@ let pokemonRepository = (function(){
         
         let titleElement = document.createElement('h1')
         titleElement.innerText = pokemon.name;
+        
+        //pokemon info
+        let height = document.createElement('p');
+        height.innerText = "Pokemon Height: " + pokemon.height;
+        let weight = document.createElement('p');
+        weight.innerText = 'Pokemon Weight: ' + pokemon.weight;
+        let type = document.createElement('p');
+        type.innerText = "Pokemon Type: " + pokemon.types;
 
-        let content = document.createElement('p')
-        content.innerText = "Pokemon Height: " + pokemon.height;
+
+
+        //adding image to modal
+        let myImage = document.createElement('img');
+        myImage.src = pokemon.imageUrl;
+        myImage.classList.add('img');
 
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
-        modal.appendChild(content);
+        modal.appendChild(height);
+        modal.appendChild(weight);
+        modal.appendChild(type);
+        modal.appendChild(myImage);
         modalContainer.appendChild(modal);
-    }
+        modalContainer.classList.add('is-visible');
+    };
 
     function hideModal () {
-        modal.classList.remove('modal');
+        let modalContainer = document.querySelector('.modal-container');
+            modalContainer.classList.remove('is-visible');
     }
-    
+    window.addEventListener('keydown', (e) => {
+        let modalContainer = document.querySelector('.modal-container')
+        if (e.key === 'escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();
+        }
+    });
+    /*document.querySelector('pokemon-list').addEventListener('click', function () {
+        showModal();
+    });
+    */
+    /*
+    function hideModal () {
+        closeButtonElement.addEventListener('click', function() {
+            modalContainer.classList.remove('is-visible');
+        })
+    }
+    */
 
     //code used to display list of pokemon on screen, displays them as a buttons which can be clicked
     function addListItem(pokemon) {
@@ -75,17 +109,18 @@ let pokemonRepository = (function(){
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
             return response.json();
-        });
-    }
-        
-        /*    //this is where we add details to the item
+        }).then(function (details) {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
+            item.weight = details.weight;
+            
+            showModal(item);
         }).catch(function (e) {
             console.error(e);
         });
-    }*/
+    }
+    
 
     function getAll () {
        return pokedex;
