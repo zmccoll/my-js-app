@@ -81,3 +81,7 @@ body {
  img {
   float: right;
  }
+
+ .nav-link {
+  color:#bb6162;
+}
