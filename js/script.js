@@ -28,7 +28,7 @@ let pokemonRepository = (function(){
        weightElement = 'Pokemon Weight: ' + pokemon.weight;
 
        let typeElement = document.createElement('p');
-       typeElement.innerText = 'Type(s): ' + pokemon.types;
+       typeElement.innerText = 'Type(s): ' + JSON.stringify(pokemon.types);
 
        modalTitle.appendChild(nameElement);
        modalBody.appendChild(imageElement);
