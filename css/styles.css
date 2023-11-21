@@ -4,12 +4,14 @@ body {
     font-family: "Playpen Sans", cursive;
     background-color:  #bb6162;
     color: #faea41; 
-    display: inline-flexbox;
+    /*display: inline-flexbox;*/
     text-align: center;
     
   }
+
+
 .button-class {
-    background-color: #bb6162;
+    background-color: #554b4c;
     font-family: inherit;
     border: 2px solid;
     text-decoration: none;
@@ -46,6 +48,7 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   /* to show it above other content*/
+  
   z-index: 999;
 
   overflow: auto;
@@ -84,4 +87,13 @@ body {
 
  .nav-link {
   color:#bb6162;
+}
+
+.list-group-item {
+  display: inline;
+}
+
+.pokemon-list {
+  display:inline-block;
+  
 }
