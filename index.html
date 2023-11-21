@@ -36,12 +36,15 @@
         <h2>Where we tell you everything you need to know about the OG Pokemon</h2>
     </header>
     <main>
-        <h3>Click on a Pokemon to see some of their Info</h3>
+        <h3>Click on a Pokemon to see some of their info!</h3>
+
+        <!--button to show modal info-->
+       <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="pokemonModal">Click to see Info!</button>-->
         
         <!--Modal for Pokemon info-->
         <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-labelledby="pokemonModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div id="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="pokemonModalLabel">Pokemon Name</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="close">
@@ -61,7 +64,10 @@
        
 
         <!--List of Pokemon-->
-        <ul class = "pokemon-list list-group" ></ul>
+        
+            <ul class = "pokemon-list list-group"></ul>
+        
+        
 
 
     </main>
