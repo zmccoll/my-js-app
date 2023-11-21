@@ -12,6 +12,9 @@ let pokemonRepository = (function(){
        //clear existing content of modal
        modalTitle.innerHTML = '';
        modalBody.innerHTML = '';
+       modalHeader.innerHTML = '';
+
+       
 
        //creating elements for name in modal content
         //adding name to title
@@ -35,9 +38,10 @@ let pokemonRepository = (function(){
        modalBody.appendChild(heightElement);
        modalBody.appendChild(weightElement);
        modalBody.appendChild(typeElement);
+       modalHeader.appendChild(modalTitle);
 
     };
-
+    /*
     function hideModal () {
         let modalContainer = document.querySelector('.modal-container');
             modalContainer.classList.remove('is-visible');
@@ -48,7 +52,7 @@ let pokemonRepository = (function(){
             hideModal();
         }
     });
-
+    */
     //code used to display list of pokemon on screen, displays them as a buttons which can be clicked
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
@@ -61,7 +65,10 @@ let pokemonRepository = (function(){
         });
         button.classList.add('button-class');//attached the css stylings to button
         button.classList.add('btn');
-        button.classList.add('btn-primary');
+        button.classList.add('btn-secondary');
+        button.classList.add('col-3');
+        listItem.classList.add('list-group-item');
+        //listItem.classList.add('col-');
         listItem.appendChild(button);//attached button to the list item
         pokemonList.appendChild(listItem);//attached list items to ul in index.htmlad
     };
@@ -74,7 +81,8 @@ let pokemonRepository = (function(){
             json.results.forEach(function (item) {
                 let pokemon = {
                     name: item.name,
-                    detailsUrl: item.url
+                    detailsUrl: item.url,
+                    imageUrl: item.myImage,
                 };
                 add(pokemon);
             });
