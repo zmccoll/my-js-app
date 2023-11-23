@@ -4,7 +4,7 @@ let pokemonRepository = (function(){
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     
     //function that will be used to display info when a pokemon is clicked on
-    function showModal (pokemon) {
+    function showModal(pokemon) {
        let modalTitle = document.querySelector('.modal-title');
        let modalBody = document.querySelector('.modal-body');
        let modalHeader = document.querySelector('.modal-header');
@@ -12,14 +12,14 @@ let pokemonRepository = (function(){
        //clear existing content of modal
        modalTitle.innerHTML = '';
        modalBody.innerHTML = '';
-       modalHeader.innerHTML = '';
+       //modalHeader.innerHTML = '';
 
        
 
        //creating elements for name in modal content
         //adding name to title
        let nameElement = document.createElement('h1');
-       nameElement.innerText = pokemon.name;
+       nameElement.innerText = 'Pokemon Name: ' + pokemon.name;
         //adding image
        let imageElement = document.createElement('img');
        imageElement.src = pokemon.imageUrl;
@@ -28,12 +28,12 @@ let pokemonRepository = (function(){
        heightElement.innerText = 'Pokemon Height: ' + pokemon.height;
         //adding weight
        let weightElement = document.createElement('p');
-       weightElement = 'Pokemon Weight: ' + pokemon.weight;
+       weightElement.innerText = 'Pokemon Weight: ' + pokemon.weight;
 
        let typeElement = document.createElement('p');
        typeElement.innerText = 'Type(s): ' + JSON.stringify(pokemon.types);
 
-       modalTitle.appendChild(nameElement);
+       modalBody.appendChild(nameElement);
        modalBody.appendChild(imageElement);
        modalBody.appendChild(heightElement);
        modalBody.appendChild(weightElement);
@@ -41,6 +41,7 @@ let pokemonRepository = (function(){
        modalHeader.appendChild(modalTitle);
 
     };
+    
     /*
     function hideModal () {
         let modalContainer = document.querySelector('.modal-container');
@@ -57,20 +58,26 @@ let pokemonRepository = (function(){
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem= document.createElement('li');//list items being created
-        listItem.classList.add('list-group-item');
+        //listItem.classList.add('list-group-item');
         let button = document.createElement('button');//button being created
         button.innerText = pokemon.name;//button text will now display the pokemon name
         button.addEventListener('click', function(event) {
             showDetails(pokemon);
         });
+       /*
         button.classList.add('button-class');//attached the css stylings to button
         button.classList.add('btn');
         button.classList.add('btn-secondary');
         button.classList.add('col-3');
         listItem.classList.add('list-group-item');
         //listItem.classList.add('col-');
+        */
+        //button.classList.add('col-3');
+        //listItem.classList.add('list-group-item');
+        button.classList.add('button-class');//attached the css stylings to button
         listItem.appendChild(button);//attached button to the list item
         pokemonList.appendChild(listItem);//attached list items to ul in index.htmlad
+        
     };
 
     //functions used to fetch data from url above
@@ -117,9 +124,9 @@ let pokemonRepository = (function(){
     };
 
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(function (data) {
-            console.log(data.name);
-            showModal(data);
+        loadDetails(pokemon).then(function (pokemon) {
+            //console.log(pokemon.name);
+            showModal(pokemon);
         })
     };
 
