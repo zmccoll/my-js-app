@@ -57,7 +57,7 @@ body {
   text-align: center;
 }
 
-.modal {
+.modal-personal {
    margin: auto;
    display: inline-block;
    padding: 20px;
@@ -90,10 +90,21 @@ body {
 }
 
 .list-group-item {
-  display: inline;
+  display: inline-table;
+  background-color: #bb6162;
+  border-color: #bb6162;
+  
+  
 }
 
 .pokemon-list {
   display:inline-block;
   
+}
+.btn-secondary {
+  background-color: #faea41;
+  color: #bb6162;
+  border: #554b4c;
+  border-radius: 10px;
+  padding: 2px;
 }
