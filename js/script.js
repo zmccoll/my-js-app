@@ -1,7 +1,7 @@
 let pokemonRepository = (function(){
     //Pokemon List
     let pokedex = [];
-    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     
     //function that will be used to display info when a pokemon is clicked on
     function showModal(pokemon) {
@@ -180,40 +180,4 @@ for (i = 0; i < pokemonList.length; i++) {
     let pokemonList = document.querySelector('pokemon-list')
     }
 }); 
-*/
-/*
-let modalTitle = document.querySelector('.modal-title');
-       let modalBody = document.querySelector('.modal-body');
-       let modalHeader = document.querySelector('.modal-header');
-
-       //clear existing content of modal
-       modalTitle.innerHTML = '';
-       modalBody.innerHTML = '';
-       //modalHeader.innerHTML = '';
-
-       
-
-       //creating elements for name in modal content
-        //adding name to title
-       let nameElement = document.createElement('h1');
-       nameElement.innerText = 'Pokemon Name: ' + pokemon.name;
-        //adding image
-       let imageElement = document.createElement('img');
-       imageElement.src = pokemon.imageUrl;
-        //adding height
-       let heightElement = document.createElement('p');
-       heightElement.innerText = 'Pokemon Height: ' + pokemon.height;
-        //adding weight
-       let weightElement = document.createElement('p');
-       weightElement.innerText = 'Pokemon Weight: ' + pokemon.weight;
-
-       let typeElement = document.createElement('p');
-       
-
-       modalBody.appendChild(nameElement);
-       modalBody.appendChild(imageElement);
-       modalBody.appendChild(heightElement);
-       modalBody.appendChild(weightElement);
-       modalBody.appendChild(typeElement);
-       modalHeader.appendChild(modalTitle);
 */
