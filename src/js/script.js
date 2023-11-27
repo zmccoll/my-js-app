@@ -28,7 +28,11 @@ let pokemonRepository = (function(){
         let weight = document.createElement('p');
         weight.innerText = 'Pokemon Weight: ' + pokemon.weight;
         let type = document.createElement('p');
-        type.innerText = 'Type(s): ' + JSON.stringify(pokemon.types);
+        const typeNames = pokemon.types.map(function(pokemon) {
+            return pokemon.type.name;
+        });
+
+        type.innerText = 'Type(s): ' + typeNames.join(', ');
 
 
 
@@ -68,7 +72,7 @@ let pokemonRepository = (function(){
         let button = document.createElement('button');//button being created
         button.innerText = pokemon.name;//button text will now display the pokemon name
         button.addEventListener('click', function(event) {
-            showModal(pokemon);
+            showDetails(pokemon);
         });
        /*
         button.classList.add('button-class');//attached the css stylings to button
@@ -133,8 +137,7 @@ let pokemonRepository = (function(){
     };
 
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(function (pokemon) {
-            //console.log(pokemon.name);
+        loadDetails(pokemon).then(function () {
             showModal(pokemon);
         })
     };
@@ -146,7 +149,8 @@ let pokemonRepository = (function(){
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
-        showModal: showModal,
+        showDetails: showDetails,
+        showModal: showModal
         
 };
 })();
