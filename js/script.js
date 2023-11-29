@@ -34,8 +34,6 @@ let pokemonRepository = (function(){
 
         type.innerText = 'Type(s): ' + typeNames.join(', ');
 
-
-
         //adding image to modal
         let myImage = document.createElement('img');
         myImage.src = pokemon.imageUrl;
@@ -54,16 +52,17 @@ let pokemonRepository = (function(){
     
     
     function hideModal () {
-        let modalContainer = document.querySelector('.modal-container');
+        let modalContainer = document.querySelector('#modal-container');
             modalContainer.classList.remove('is-visible');
     }
+    
     window.addEventListener('keydown', (e) => {
-        let modalContainer = document.querySelector('.modal-container')
-        if (e.key === 'escape' && modalContainer.classList.contains('is-visible')) {
+        let modalContainer = document.querySelector('#modal-container');
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
             hideModal();
         }
     });
-    
+ 
     //code used to display list of pokemon on screen, displays them as a buttons which can be clicked
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
