@@ -48,6 +48,14 @@ let pokemonRepository = (function(){
         modalContainer.appendChild(modal);
         modalContainer.classList.add('is-visible');
 
+        
+        modalContainer.addEventListener('click', (e) => {
+            let target = e.target;
+            if (target === modalContainer) {
+            hideModal();
+            }
+        });
+
     };
     
     
@@ -62,6 +70,7 @@ let pokemonRepository = (function(){
             hideModal();
         }
     });
+
  
     //code used to display list of pokemon on screen, displays them as a buttons which can be clicked
     function addListItem(pokemon) {
