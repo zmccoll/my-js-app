@@ -48,7 +48,7 @@ let pokemonRepository = (function(){
         modalContainer.appendChild(modal);
         modalContainer.classList.add('is-visible');
 
-        
+        //so when user clicks outside of modal it closes
         modalContainer.addEventListener('click', (e) => {
             let target = e.target;
             if (target === modalContainer) {
