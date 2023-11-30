@@ -108,3 +108,7 @@ body {
   border-radius: 10px;
   padding: 2px;
 }
+
+.search-bar {
+  float: right;
+}
